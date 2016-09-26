@@ -5,10 +5,10 @@ namespace Calculator.ConsoleUi.Invoker
 {
     public class InvokerIslemler
     {
-        public List<CommandIslemler> CommandIslemlerList { get; set; }
+        public List<ICommand> CommandIslemlerList { get; set; }
         public InvokerIslemler()
         {
-            CommandIslemlerList = new List<CommandIslemler>();
+            CommandIslemlerList = new List<ICommand>();
         }
 
         public void ExecuteAll()
@@ -16,7 +16,7 @@ namespace Calculator.ConsoleUi.Invoker
             if (CommandIslemlerList.Count == 0)
                 return;
 
-            foreach (CommandIslemler item in CommandIslemlerList)
+            foreach (ICommand item in CommandIslemlerList)
             {
                 item.Execute();
             }

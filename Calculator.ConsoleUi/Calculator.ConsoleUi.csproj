@@ -47,7 +47,7 @@
     <Compile Include="Bolme.cs" />
     <Compile Include="Carpma.cs" />
     <Compile Include="Cikartma.cs" />
-    <Compile Include="Command\CommandIslemler.cs" />
+    <Compile Include="Command\ICommand.cs" />
     <Compile Include="ConcreteCommand\ConcreteCommandBolme.cs" />
     <Compile Include="ConcreteCommand\ConcreteCommandCarpma.cs" />
     <Compile Include="ConcreteCommand\ConcreteCommandCikarma.cs" />
@@ -56,6 +56,7 @@
     <Compile Include="Invoker\InvokerIslemler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Receiver\IReceiver.cs" />
     <Compile Include="Receiver\ReceiverIslemler.cs" />
     <Compile Include="Toplama.cs" />
     <Compile Include="_Model\Islemler.cs" />

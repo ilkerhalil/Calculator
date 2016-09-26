@@ -16,18 +16,18 @@ namespace Calculator.ConsoleUi
 
             Islemler islem = new Islemler() { Id = 1, Toplama = degerler, Cikarma = degerler, Carpma = degerler, Bolme = degerler };
 
-            ReceiverIslemler receiverIslemler = new ReceiverIslemler(islem);
+            IReceiver receiverIslemler = new ReceiverIslemler(islem);
 
-            CommandIslemler commandTopla = new ConcreteCommandTopla(receiverIslemler);
-            CommandIslemler commandCikar = new ConcreteCommandCikarma(receiverIslemler);
-            CommandIslemler commandCarp = new ConcreteCommandCarpma(receiverIslemler);
-            CommandIslemler commandBol = new ConcreteCommandBolme(receiverIslemler);
+            ICommand commandTopla = new ConcreteCommandTopla(receiverIslemler);
+            ICommand commandCikarma = new ConcreteCommandCikarma(receiverIslemler);
+            ICommand commandCarpma = new ConcreteCommandCarpma(receiverIslemler);
+            ICommand commandBolme = new ConcreteCommandBolme(receiverIslemler);
 
             InvokerIslemler invokerIslemler = new InvokerIslemler();
             invokerIslemler.CommandIslemlerList.Add(commandTopla);
-            invokerIslemler.CommandIslemlerList.Add(commandCikar);
-            invokerIslemler.CommandIslemlerList.Add(commandCarp);
-            invokerIslemler.CommandIslemlerList.Add(commandBol);
+            invokerIslemler.CommandIslemlerList.Add(commandCikarma);
+            invokerIslemler.CommandIslemlerList.Add(commandCarpma);
+            invokerIslemler.CommandIslemlerList.Add(commandBolme);
             invokerIslemler.ExecuteAll();
 
             Console.Read();

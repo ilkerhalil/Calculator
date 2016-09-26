@@ -3,15 +3,16 @@ using Calculator.ConsoleUi.Receiver;
 
 namespace Calculator.ConsoleUi.ConcreteCommand
 {
-    public class ConcreteCommandTopla : CommandIslemler
+    public class ConcreteCommandTopla : ICommand
     {
-        public ConcreteCommandTopla(ReceiverIslemler receiverIslemler) : base(receiverIslemler)
+        private IReceiver _receiver;
+        public ConcreteCommandTopla(IReceiver receiver)
         {
+            this._receiver = receiver;
         }
-
-        public override void Execute()
+        public void Execute()
         {
-            _receiverIslemler.Topla();
+            _receiver.Toplama();
         }
     }
 }
