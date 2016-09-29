@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.ConsoleUi", "Calculator.ConsoleUi\Calculator.ConsoleUi.csproj", "{891849B0-07E0-4A55-B2A8-05FB0A847D91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator.CommandPattern", "Calculator.CommandPattern\Calculator.CommandPattern.csproj", "{74595A77-D73C-4C4B-8F4C-18804F816133}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{891849B0-07E0-4A55-B2A8-05FB0A847D91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{891849B0-07E0-4A55-B2A8-05FB0A847D91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{891849B0-07E0-4A55-B2A8-05FB0A847D91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{74595A77-D73C-4C4B-8F4C-18804F816133}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74595A77-D73C-4C4B-8F4C-18804F816133}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74595A77-D73C-4C4B-8F4C-18804F816133}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74595A77-D73C-4C4B-8F4C-18804F816133}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

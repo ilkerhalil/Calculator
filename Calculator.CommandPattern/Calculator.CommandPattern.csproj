@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{891849B0-07E0-4A55-B2A8-05FB0A847D91}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{74595A77-D73C-4C4B-8F4C-18804F816133}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Calculator.ConsoleUi</RootNamespace>
-    <AssemblyName>Calculator.ConsoleUi</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <RootNamespace>Calculator.CommandPattern</RootNamespace>
+    <AssemblyName>Calculator.CommandPattern</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,23 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AritmatikIslemFactory.cs" />
-    <Compile Include="Bolme.cs" />
-    <Compile Include="Carpma.cs" />
-    <Compile Include="Cikartma.cs" />
-    <Compile Include="IAritmatikIslem.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Command.cs" />
+    <Compile Include="ConcreteCommand.cs" />
+    <Compile Include="ConcreteCommandCikarma.cs" />
+    <Compile Include="ConcreteCommandToplama.cs" />
+    <Compile Include="Invoker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Toplama.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Calculator.CommandPattern\Calculator.CommandPattern.csproj">
-      <Project>{74595A77-D73C-4C4B-8F4C-18804F816133}</Project>
-      <Name>Calculator.CommandPattern</Name>
-    </ProjectReference>
+    <Compile Include="Receiver.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

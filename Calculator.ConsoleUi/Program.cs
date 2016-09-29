@@ -1,10 +1,6 @@
-﻿using System;
+﻿using Calculator.CommandPattern;
+using System;
 using System.Collections.Generic;
-using Calculator.ConsoleUi.Command;
-using Calculator.ConsoleUi.ConcreteCommand;
-using Calculator.ConsoleUi.Invoker;
-using Calculator.ConsoleUi.Receiver;
-using Calculator.ConsoleUi._Model;
 
 namespace Calculator.ConsoleUi
 {
@@ -12,25 +8,29 @@ namespace Calculator.ConsoleUi
     {
         static void Main(string[] args)
         {
-            List<decimal> degerler = new List<decimal> { 6, 3, 2, 6, 2, 7 };
+            List<decimal> sayilar = new List<decimal>();
+            Console.WriteLine("islem yapilacak sayi adedini giriniz:");
+            int count = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i < count + 1; i++)
+            {
+                Console.Write(i + ". sayiyi giriniz:");
+                decimal sayi = Convert.ToDecimal(Console.ReadLine());
+                sayilar.Add(sayi);
+            }
 
-            Islemler islem = new Islemler() { Id = 1, Toplama = degerler, Cikarma = degerler, Carpma = degerler, Bolme = degerler };
+            Receiver receiver = new Receiver(sayilar);
 
-            IReceiver receiverIslemler = new ReceiverIslemler(islem);
+            Command commandToplama = new ConcreteCommandToplama(receiver);
+            Invoker invokerToplama = new Invoker();
+            invokerToplama.SetCommand(commandToplama);
+            invokerToplama.ExecuteCommand();
 
-            ICommand commandTopla = new ConcreteCommandTopla(receiverIslemler);
-            ICommand commandCikarma = new ConcreteCommandCikarma(receiverIslemler);
-            ICommand commandCarpma = new ConcreteCommandCarpma(receiverIslemler);
-            ICommand commandBolme = new ConcreteCommandBolme(receiverIslemler);
+            Command commandCikarma = new ConcreteCommandCikarma(receiver);
+            Invoker invokerCikarma = new Invoker();
+            invokerCikarma.SetCommand(commandCikarma);
+            invokerCikarma.ExecuteCommand();
 
-            InvokerIslemler invokerIslemler = new InvokerIslemler();
-            invokerIslemler.CommandIslemlerList.Add(commandTopla);
-            invokerIslemler.CommandIslemlerList.Add(commandCikarma);
-            invokerIslemler.CommandIslemlerList.Add(commandCarpma);
-            invokerIslemler.CommandIslemlerList.Add(commandBolme);
-            invokerIslemler.ExecuteAll();
-
-            Console.Read();
+            Console.ReadKey();
         }
     }
 }
