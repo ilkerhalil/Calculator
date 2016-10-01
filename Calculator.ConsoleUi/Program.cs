@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Calculator.CommandPattern;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Calculator.ConsoleUi
 {
@@ -10,12 +8,29 @@ namespace Calculator.ConsoleUi
     {
         static void Main(string[] args)
         {
-            var islem = new Islem();
-            
+            List<decimal> sayilar = new List<decimal>();
+            Console.WriteLine("islem yapilacak sayi adedini giriniz:");
+            int count = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i < count + 1; i++)
+            {
+                Console.Write(i + ". sayiyi giriniz:");
+                decimal sayi = Convert.ToDecimal(Console.ReadLine());
+                sayilar.Add(sayi);
+            }
+
+            Receiver receiver = new Receiver(sayilar);
+
+            Command commandToplama = new ConcreteCommandToplama(receiver);
+            Invoker invokerToplama = new Invoker();
+            invokerToplama.SetCommand(commandToplama);
+            invokerToplama.ExecuteCommand();
+
+            Command commandCikarma = new ConcreteCommandCikarma(receiver);
+            Invoker invokerCikarma = new Invoker();
+            invokerCikarma.SetCommand(commandCikarma);
+            invokerCikarma.ExecuteCommand();
+
+            Console.ReadKey();
         }
-
-       
-
-        
     }
 }
